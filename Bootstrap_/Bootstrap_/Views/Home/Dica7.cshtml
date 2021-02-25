@@ -1,0 +1,81 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-3">Métodos funcionais </h1>
+            <span>Abra o console e execute o método "Pay()"</span>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    /* Método principal para pagamento     */
+    function Pay(value) {
+        debugger
+        const billet = _GetBillet();
+        const debit = _GetDebit(billet);
+
+        const isValid = _PayValidation(debit, value);
+        return EnableToPay(isValid);
+    }
+
+
+    /* Verificar se o pagamento está disponivel     */
+    function EnableToPay(isValid) {
+        if (isValid)
+            return ('Pago');
+        else
+            return ('Erro no Pagamento');
+    }
+
+    /* Validações do pagamento     */
+    function _PayValidation(debit, valuePaid) {
+        if (debit === valuePaid)
+            return true;
+        else if (debit > valuePaid)
+            console.info('Valor do débito é MAIOR que o pagamento ');
+        else if (debit < valuePaid)
+            console.info('Valor do débito é MENOR que o pagamento ');
+        else if (!valuePaid)
+            console.info('Informe o valor do pagamento');
+        else
+            console.info('Erro não tratado');
+        return false
+    }
+
+    /* Obter valores já pagos na parcela    */
+    function _GetValuePaid(billet) {
+        if (billet) {
+            return billet.paid
+        }
+        else return 0
+    }
+
+    /* Obter Débitos para pagamento    */
+    function _GetDebit(billet) {
+        if (billet) {
+            const paid = _GetValuePaid(billet);
+            return CalculateDebit(billet.value, billet.fee, paid)
+        }
+        else return 0
+    }
+
+    /* Calcular bédito    */
+    function CalculateDebit(total, fee, paid) {
+        return (total + fee - paid);
+    }
+
+    /* Buscar Parcela    */
+    function _GetBillet() {
+        return {
+            number: '123456',
+            value: 500,
+            fee: 20,
+            paid: 0
+        }
+    }
+
+
+
+</script>

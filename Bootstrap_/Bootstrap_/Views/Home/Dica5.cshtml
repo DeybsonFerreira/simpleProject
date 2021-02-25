@@ -1,0 +1,50 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-3">Form Validation Js </h1>
+        </div>
+    </div>
+</div>
+
+
+<form name="pageForm">
+    <div class="form-group">
+        <label>Nome</label>
+        <input type="text" class="form-control" name="nome" placeholder="seu nome">
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" name="email" inputmode="email" placeholder="seu email">
+    </div>
+    <div class="form-group">
+        <label>Senha</label>
+        <input type="password" class="form-control" name="senha" placeholder="senha">
+    </div>
+    <button class="btn btn-primary" type="button" onclick="Validate()">Enter</button>
+</form>
+
+
+
+
+<script>
+    function Validate() {
+        let form = document.forms["pageForm"];
+
+        const nome = form["nome"].value;
+        const email = form["email"].value;
+        const senha = form["senha"].value;
+
+        if (!nome || !email || !senha) {
+            alert('Todos os dados são obrigatórios');
+            return;
+        }
+        console.table(
+            {
+                Nome: nome,
+                Email: email,
+                Senha: senha
+            });
+        alert('Dados no Console');
+
+    }
+</script>

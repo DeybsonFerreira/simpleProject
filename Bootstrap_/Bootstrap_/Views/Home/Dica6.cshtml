@@ -1,0 +1,67 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-3">Moeda </h1>
+        </div>
+    </div>
+</div>
+
+
+
+<form name="pageForm">
+
+    <div class="form-group">
+        <label>Valor</label>
+        <input type="number" class="form-control" id="valor" placeholder="valor">
+    </div>
+    <h1 id="converted"></h1>
+    <button class="btn btn-primary" type="button" onclick="Currency()">Converter</button>
+</form>
+
+
+<style>
+    :root {
+        /*--primary: #f857a6;*/
+        --primary: #222;
+    }
+
+    h1 {
+        color: var(--primary)
+    }
+</style>
+
+
+
+<script>
+
+    function example(value) {
+
+        let options = { style: 'currency', currency: 'USD' };
+        console.log(new Intl.NumberFormat('en-US', options).format(value));
+        // $1,000,000.50
+        console.log(new Intl.NumberFormat('fr-FR', options).format(value));
+        // 1 000 000,50 $US
+        console.log(new Intl.NumberFormat('in-IN', options).format(value));
+        // US$1.000.000,50
+        options = { style: 'currency', currency: 'EUR' };
+        console.log(new Intl.NumberFormat('en-US', options).format(value));
+        // €1,000,000.50
+        console.log(new Intl.NumberFormat('fr-FR', options).format(value));
+        // 1 000 000,50 €
+        console.log(new Intl.NumberFormat('in-IN', options).format(value));
+        // €1.000.000,50
+
+    }
+
+    function Currency() {
+        let value = $("#valor").val();
+        if (!value)
+            return;
+        //var language=navigator.language
+        example(value);
+        let converted = Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
+        $("#converted").text(converted.toString())
+        alert('Mais Valores no console');
+    }
+
+</script>

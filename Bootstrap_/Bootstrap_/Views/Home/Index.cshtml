@@ -1,0 +1,50 @@
+﻿<div class="container">
+    <div class="col">
+        <h1 class="display-3">Simple Project  </h1>
+    </div>
+
+    <div class="circle0 mb-4 bg-success"></div>
+    <div class="circle1 mb-4 bg-danger"></div>
+    <div class="circle2 mb-4 bg-info"></div>
+    <div class="circle3 mb-4 bg-warning"></div>
+    <div class="circle4 mb-4 bg-secondary"></div>
+    <div class="circle5 mb-4 bg-success"></div>
+</div>
+
+<style>
+
+
+    .circle, .circle0, .circle1, .circle2, .circle3, .circle4, .circle5 {
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+    }
+
+    .container:hover .circle, .container:hover .circle0, .container:hover .circle1, .container:hover .circle2, .container:hover .circle3, .container:hover .circle4, .container:hover .circle5 {
+        transform: translateX(800px);
+    }
+
+    .circle0 {
+        transition: all 1.5s linear;
+    }
+
+    .circle1 {
+        transition: all 1.5s ease;
+    }
+
+    .circle2 {
+        transition: all 1.5s ease-in;
+    }
+
+    .circle3 {
+        transition: all 1.5s ease-out;
+    }
+
+    .circle4 {
+        transition: all 1.5s ease-in-out;
+    }
+
+    .circle5 {
+        transition: all 1.5s cubic-bezier(0, 1, 0.98, 0);
+    }
+</style>
